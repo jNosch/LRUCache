@@ -28,10 +28,23 @@ void LRUCache::addToFront(LRUCache::Node *node) {
 
 
 int LRUCache::get(int key) {
+    auto it = map.find(key);
 
+    if (it == map.end()) {
+        return -1;
+    }
+
+    Node* node = it->second;
+    remove(node);
+    addToFront(node);
+    return node->val;
 }
 
 void LRUCache::put(int key, int value) {
+auto it = map.find(key);
 
+if (it != map.end()) {
+
+}
 }
 
